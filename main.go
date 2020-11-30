@@ -1,43 +1,31 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
 
 func main() {
 
-	var orbitNumber int
-	fmt.Println("Enter an orbital number:")
-	fmt.Scanln(&orbitNumber)
-	if orbitNumber == 0 {
-		fmt.Println("Sun")
-	}
-	if orbitNumber == 1 {
-		fmt.Println("Mercury")
-	}
-	if orbitNumber == 2 {
-		fmt.Println("Venus")
-	}
-	if orbitNumber == 3 {
-		fmt.Println("Earth")
-	}
-	if orbitNumber == 4 {
-		fmt.Println("Mars")
-	}
-	if orbitNumber == 5 {
-		fmt.Println("Ceres")
-	}
-	if orbitNumber == 6 {
-		fmt.Println("Jupiter")
-	}
-	if orbitNumber == 7 {
-		fmt.Println("Saturn")
-	}
-	if orbitNumber == 8 {
-		fmt.Println("Uranus")
-	}
-	if orbitNumber == 9 {
-		fmt.Println("Neptune")
-	}
-	if orbitNumber == 10 {
-		fmt.Println("Pluto")
+	input := bufio.NewScanner(os.Stdin)
+	fmt.Println("Enter a solar system object:")
+	for input.Scan() {
+
+		if input.Text() == "sun" {
+			fmt.Println("Sun")
+		}
+		if input.Text() == "mercury" {
+			fmt.Println("Mercury")
+		}
+		if input.Text() == "venus" {
+			fmt.Println(
+				"Venus" +
+					"Information:" +
+					"The clouds of Venus are so toxic that they surpass the pH scale." +
+					"Scientists detected Phosphine in the atmosphere, which is highly unusual on terrestrial planets. This chemical is typically considered to be a biosignature." +
+					"Astrobiologists think it is possible that countless microbes are thriving in the Venusian atmosphere, subsisting off of the toxins and even UV radiation from the nearer Sun.")
+		}
+		fmt.Println("Enter a solar system object:")
 	}
 }
